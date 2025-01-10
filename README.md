@@ -9,17 +9,17 @@ You will be assigned two folders to look through and assign labels to. The UI co
 
 
 
-#### One, Two, and Three
-Select these options if there are one, two, or three eggs in the image. 
+#### One, Two, Three, and Four through Nine
+Select these options if there are one, two, or three eggs in the image. You can use the keyboard to type these numbers and they will automatically classify them.
 
 #### Unsure
-If you are unsure about the number of eggs in an image, click this. These will later be reviewed by Ken and classified accordingly.
+If you are unsure about the number of eggs in an image, click this, or type u. These will later be reviewed by Ken and classified accordingly.
 
 #### Custom Count
-If there are more than three eggs in the image, type the **INTEGER VALUE** of the number of eggs in the tile. Do NOT type the word equivalent of the count. After you type in the integer, click submit and the next image will be loaded.
+If there are more than three eggs in the image, use the **arrows** to go the number of the number of eggs in the tile. Then, click submit.
 
 #### Undo
-If you make a mistake, click Undo. This should allows you to reclassify the image.
+If you make a mistake, click Undo, ctrl+z, or z. This allows you to reclassify the image.
 
 #### Important: Partial Egg Counting
 There is no partial egg button! If you see more than 70% of an egg in the image or you didn't _really_ have to think about if this is an egg or not, count is as an egg. If there's very little of the egg in the image (e.g. less than 20% of the egg), do not count it as an egg. If you are unsure, click "Unsure."
@@ -122,16 +122,12 @@ $ pip install opencv-python
 * The folder's structure should be:
 ```
 .
-├── MONTH DAY
-    │
-    ├── C pops
-    │
-    └── D pops
+├── FolderName
 ```
 
-* Choose a folder C pops or D pops.
-* Do what you did when finding the path to the Classifier-Site directory to find the path of the folder you just chose again. This path you chose should end with C pops or D pops.
-EX) ./MONTH DAY/C pops
+* Do what you did when finding the path to the Classifier-Site directory to find the path of the folder you just chose again.
+* **IMPORTANT NOTE:** If this is the SECOND time you're running the program, make sure that your path ends with "-sliced" otherwise the program will reshred the images.
+EX) ./MONTH DAY/FolderName
 
 Run the following command:
 ```
@@ -151,6 +147,10 @@ Shreya Nakum
 Alden Black
 
 ## Version History
+* 0.4
+    * Added hot-keys for 4-9
+    * Added ctrl+z and z for undo and u for unsure
+    * Integrated image shredder into the backend
 * 0.3
     * Added Undo button
     * Fixed issues with sys.argv

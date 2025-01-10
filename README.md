@@ -1,6 +1,6 @@
 # Classifying Fecundity Data UI
 
-This UI is meant to help with classifying split images from the Winter 2017 dataset. Each image is a 75x75 "tile" of the original image. We use tile to refer to the image displayed on the site.
+This UI is meant to help with classifying split images. Each image is a 75x75 "tile" of the original image. We use tile to refer to the image displayed on the site.
 ![Screenshot 2025-01-06 162822](https://github.com/user-attachments/assets/f069d3cd-0d1e-430b-a7d1-c0fb29bfb627)
 
 ## UI Rules

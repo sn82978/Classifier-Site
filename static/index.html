@@ -36,6 +36,7 @@
         <button onclick="categorizeImage('eggs2count')">2 Eggs</button>
         <button onclick="categorizeImage('eggs3count')">3 Eggs</button>
         <button onclick="categorizeImage('eggsunsurecount')">Unsure</button>
+        <!-- <input type="number" id="customCount" min="0" placeholder="Custom count"> -->
         <input type="number" id="customCount" min="0" placeholder="Custom count">
         <button onclick="categorizeCustom()">Submit Custom</button>
         <button onclick="undoLastAction()">Undo</button>
@@ -149,7 +150,11 @@
         }
 
         function categorizeCustom() {
-            const countInput = document.getElementById('customCount').value;
+            // const countInput = document.getElementById('customCount').value;
+            document.getElementById('customCount').addEventListener('focus', function() {
+                this.value = '';
+            });
+
             const count = parseInt(countInput, 10);
 
             if (!Number.isInteger(count) || count < 0) {
@@ -158,19 +163,36 @@
             categorizeImage(`eggs${count}count`);
         }
 
+        // document.addEventListener('keydown', function(event) {
+        //     if (event.key >= '0' && event.key <= '9') {
+        //         categorizeImage(`eggs${event.key}count`);
+        //     }
+	    
+	    // if (event.key == 'z' || (event.ctrlKey && event.key == 'z')) {
+		// undoLastAction();
+	    // }
+	    
+	    // if (event.key == 'u') {
+		// categorizeImage('eggsunsurecount');
+	    // }
+        // });
         document.addEventListener('keydown', function(event) {
-            if (event.key >= '0' && event.key <= '9') {
-                categorizeImage(`eggs${event.key}count`);
+            // Check if the custom count input is focused
+            if (document.activeElement.id !== 'customCount') {
+                if (event.key >= '0' && event.key <= '9') {
+                    categorizeImage(`eggs${event.key}count`);
+                }
+                
+                if (event.key == 'z' || (event.ctrlKey && event.key == 'z')) {
+                    undoLastAction();
+                }
+                
+                if (event.key == 'u') {
+                    categorizeImage('eggsunsurecount');
+                }
             }
-	    
-	    if (event.key == 'z' || (event.ctrlKey && event.key == 'z')) {
-		undoLastAction();
-	    }
-	    
-	    if (event.key == 'u') {
-		categorizeImage('eggsunsurecount');
-	    }
         });
+
 
         // load the first image when the page loads
         loadNextImage();
